@@ -4,7 +4,7 @@
 
 #include "Recipe.h"
 #include <iostream>
-Recipe::Recipe(const std::string& title, const std::string& instructions)
+Recipe::Recipe(const std::string& title, const std::string& instructions) //конструктор
     : title(title), instructions(instructions) {}
 void Recipe::addIngredient(const Ingredient& ingredient) {
 ingredients.push_back(ingredient);
