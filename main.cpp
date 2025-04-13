@@ -21,5 +21,28 @@ int main()
 
     std::cout << "Recipe Book: " << std::endl;
     book.displayAll();
+
+    std::cout << "Recipe Count: " << RecipeBook::getRecipeCount() << std::endl;
+
+    Ingredient sugar("Sugar", 100, "g");
+    Ingredient negativeSugar = -sugar;
+    std::cout << "Negative Sugar: " << negativeSugar << std::endl;
+
+    Ingredient salt("Salt", 50, "g");
+    Ingredient combinedSalt = salt + Ingredient("Salt", 30, "g");
+    std::cout << "Combined Salt: " << combinedSalt << std::endl;
+
+    try
+    {
+        Ingredient invalidCombine = sugar + salt;
+    } catch (const std::invalid_argument& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
+    Ingredient customIngredient;
+    std::cout << "Enter an ingredient (format: Name Quantity Unit): ";
+    std::cin >> customIngredient;
+    std::cout << "You entered: " << customIngredient << std::endl;
     return 0;
 }
