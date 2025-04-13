@@ -16,13 +16,16 @@ private:
     std::string instructions;
     public:
     Recipe(const std::string& title, const std::string& instructions);
-    Recipe() : Recipe("Untitled", "No instructions provided"){} //делегований конструктор
+    Recipe();
+    Recipe(const Recipe& other); //copy constructor
+    Recipe(Recipe&& other) noexcept; //move
     ~Recipe()
     {
         std::cout << "Recipe removed: " << title << std::endl; //деструктор
     }
-    void addIngredient(const Ingredient& ingredient);
-    void display() const;
+    void addIngredient(const Ingredient& ingredient); //methods
+    void display() const; //methods
+    const std::vector<Ingredient>& getIngredients() const; // mod const
 
 };
 
