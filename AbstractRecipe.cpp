@@ -1,3 +1,3 @@
-//
-// Created by Tetiana on 29.04.2025.
-//
+#include "AbstractRecipe.h"
+
+AbstractRecipe::AbstractRecipe(const std::string& title) : title(title) {}
