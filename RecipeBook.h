@@ -1,30 +1,24 @@
-//
-// Created by Tetiana on 16.03.2025.
-//
-
 #ifndef RECIPEBOOK_H
 #define RECIPEBOOK_H
 #include "Recipe.h"
 #include <vector>
 
-
 class RecipeBook {
 private:
-    std::vector<Recipe> recipes;
+    std::vector<Recipe*> recipes;
     static int recipeCount;
 
-    public:
+public:
     RecipeBook();
-    RecipeBook(const RecipeBook& other); //copy
-    RecipeBook(RecipeBook&& other) noexcept; //move
+    RecipeBook(const RecipeBook& other);
+    RecipeBook(RecipeBook&& other) noexcept;
+    RecipeBook& operator=(const RecipeBook& other);
     ~RecipeBook();
 
-    void addRecipe(const Recipe& recipe);
+    void addRecipe(Recipe* recipe);
     void displayAll() const;
-    static int getRecipeCount();
 
+    static int getRecipeCount();
 };
 
-
-
-#endif //RECIPEBOOK_H
+#endif // RECIPEBOOK_H
