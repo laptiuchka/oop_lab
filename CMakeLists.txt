@@ -14,4 +14,11 @@ RecipeBook.cpp
         Recipe.h
         RecipeBook.cpp
         RecipeBook.h
+        Item.h
+        AbstractRecipe.h
+        AdvancedRecipe.h
+        AbstractRecipe.cpp
+        Recipee.cpp
+        AdvancedRecipe.cpp
+        RecipeeBook.cpp
 )
