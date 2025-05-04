@@ -11,7 +11,7 @@ public:
     Item(const std::string& name = "Unknown") : name(name) {}
     virtual ~Item() { std::cout << "Item removed: " << name << std::endl; }
 
-    virtual void display() const = 0; // Чисто віртуальний метод
+    virtual void display() const = 0;
 };
 
 #endif // ITEM_H

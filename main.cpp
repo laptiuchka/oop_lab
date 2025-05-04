@@ -1,22 +1,34 @@
-#include "RecipeBook.h"
+#include "AbstractRecipe.h"
+#include "Recipe.h"
+#include "AdvancedRecipe.h"
 #include <iostream>
-#include "Ingredient.h"
+#include <vector>
 
+void printWithPointer(const AbstractRecipe* recipe) {
+    recipe->display();
+    recipe->printType();
+}
+
+void printWithReference(const AbstractRecipe& recipe) {
+    recipe.display();
+    std::cout << "Using reference: " << recipe.getType() << std::endl;
+}
 
 int main() {
-    RecipeBook book;
+    std::vector<AbstractRecipe*> recipes;
 
-    Recipe* borshch = new Recipe("Borshch", "Cook for 40 minutes.");
-    borshch->addIngredient(Ingredient("Cabbage", 200, "g"));
-    book.addRecipe(borshch);
+    recipes.push_back(new Recipe("Borshch", "Boil for 40 min."));
+    recipes.push_back(new AdvancedRecipe("Pancakes", "Fry both sides", "Dessert", 2));
 
-    AdvancedRecipe* pancakes = new AdvancedRecipe("Pancakes", "Fry for 2 minutes each side.", "Dessert", 3);
-    pancakes->addIngredient(Ingredient("Flour", 200, "g"));
-    book.addRecipe(pancakes);
+    for (const auto& recipe : recipes) {
+        printWithPointer(recipe);     // run-time via pointer
+        printWithReference(*recipe);  // run-time via reference
+        std::cout << "----------------------\n";
+    }
 
-    book.displayAll();
-    std::cout << "Recipe count: " << RecipeBook::getRecipeCount() << std::endl;
+    for (auto& recipe : recipes) {
+        delete recipe;
+    }
 
     return 0;
 }
-
