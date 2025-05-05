@@ -21,4 +21,5 @@ RecipeBook.cpp
         Recipee.cpp
         AdvancedRecipe.cpp
         RecipeeBook.cpp
+        Printable.h
 )
